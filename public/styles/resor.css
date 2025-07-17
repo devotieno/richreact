@@ -1,0 +1,238 @@
+:root {
+  --primary: #304a58;
+  --secondary: #003366;
+  --accent: #0073e6;
+  --bg-light: #f7f8fa;
+  --text-color: #23272f;
+  --white: #fff;
+  --radius: 6px;
+  --card-bg: #fff;
+}
+
+/* Body and header */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-light);
+  color: var(--text-color);
+}
+
+button {
+  background-color: #03045e;
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.sec-header {
+  background: linear-gradient(88deg, #022E56 28%, #e36414 100%);
+  color: #fff;
+  width: 98%;
+  margin: 0 auto;
+  padding: 28px 0;
+  text-align: center;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Hero section for notes page */
+.hero {
+  background: linear-gradient(135deg, #022e56 60%, #e36414 100%);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.13);
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.hero-text {
+  flex: 1 1 300px;
+}
+
+.hero h1 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 2px 8px #000000;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #e3eaf3;
+  max-width: 600px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #f1f5f9;
+  color: var(--primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.stat {
+  text-align: center;
+  flex: 1 1 150px;
+}
+
+.stat h2 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.stat p {
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  color: #003366;
+}
+
+/* Notes cards */
+main {
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  margin: 1rem 0;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  color: #003366;
+  box-shadow: 0 2px 8px rgba(30,41,59,0.06);
+  position: relative;
+}
+
+.card:hover {
+  background-color: #f1f5f9;
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.card::after {
+  content: '\f061';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: #2563eb;
+  transition: transform 0.2s ease;
+  margin-left: 1rem;
+}
+
+.card:hover::after {
+  transform: translateX(5px);
+}
+
+/* Example icon for card (if you want to use icons in cards) */
+.card .fa {
+  font-size: 1.3rem;
+  color: #2563eb;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.popup-menu {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 2rem 1.5rem;
+  z-index: 1000;
+  min-width: 220px;
+  text-align: center;
+}
+.popup-menu button {
+  display: block;
+  margin: 1rem auto;
+  width: 80%;
+}
+.popup-menu .close-btn {
+  background: #e36414;
+  color: #fff;
+  margin-top: 1.5rem;
+}
+.popup-menu.active {
+  display: block;
+}
+
+.paper-popup-btn {
+  display: block;
+  width: 90%;
+  margin: 1rem auto 0 auto;
+  background: #03045e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  letter-spacing: 0.01em;
+}
+
+.paper-popup-btn:hover,
+.paper-popup-btn:focus {
+  background: #001a4d;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.paper-popup .close-btn {
+  display: block;
+  width: 90%;
+  margin: 1.5rem auto 0 auto;
+  background: #e36414;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.paper-popup .close-btn:hover,
+.paper-popup .close-btn:focus {
+  background: #b94d0d;
+}

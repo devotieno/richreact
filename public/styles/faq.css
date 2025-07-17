@@ -1,0 +1,143 @@
+:root {
+  --primary: #304a58;
+  --secondary: #003366;
+  --accent: #0073e6;
+  --bg-light: #f9f9fb;
+  --text-color: #222;
+  --white: #fff;
+  --radius: 6px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background:#ffffff; /* matches the dark background in the image */
+  color: #fff;
+}
+
+
+button {
+  background-color: #03045e;
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.faq-header { 
+  background: linear-gradient(88deg, #022E56 28%, #e36414 100%);
+  color: white;
+  width: 98%;
+  margin: 0 auto;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.faq-header input {
+  padding: 0.75rem 1rem;
+  width: 300px;
+  max-width: 90%;
+  border: none;
+  border-radius: 12px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  outline: none;
+  background: #013a6e;
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1.8px solid #000000;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background-color: #022E56;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  border-color:#8ac7ff;
+  color: #fff;
+}
+
+.tab.active {
+  background: linear-gradient(44deg, #030303, #e36414);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 12px #6a5acd66;
+}
+
+.faq-section {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(21, 51, 79, 0.18), 0 1.5px 8px rgba(0,0,0,0.10);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  border-left: 4px solid #e36414;
+  padding-left: 1rem;
+  color: #304a58;
+}
+
+.question {
+  background: #f9f9fb;
+  border: 1px solid #e3eaf3;
+  color: #222;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.2s;
+  position: relative;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(48,74,88,0.06);
+}
+
+.question:hover {
+  background: #eaf3fa;
+}
+
+.answer {
+  display: none;
+  padding: 1rem 1.5rem;
+  background: #f4f8fc;
+  border-radius: 0 0 12px 12px;
+  color: #304a58;
+  border-top: 1px solid #e3eaf3;
+  margin-top: -0.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(48,74,88,0.04);
+}
+
+.shadow-dark {
+  box-shadow: 0 8px 32px rgba(21, 51, 79, 0.28), 0 1.5px 8px rgba(0,0,0,0.12);
+}
+

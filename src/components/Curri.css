@@ -1,0 +1,111 @@
+:root {
+  --primary: #304a58;
+  --secondary: #003366;
+  --accent: #0073e6;
+  --bg-light: #f7f8fa;
+  --text-color: #23272f;
+  --white: #fff;
+  --radius: 6px;
+  --card-bg: #fff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-light);
+  color: var(--text-color);
+}
+
+button {
+  background-color: #03045e;
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.curriculum-section {
+  background: #f9f9fb;
+  color: #222;
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.curriculum-section h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.curriculum-section h3 {
+  color: #304a58;
+  margin-top: 40px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.curriculum-section h4 {
+  color: #0073e6;
+  margin-top: 25px;
+  font-size: 1.2rem;
+  text-align:center;
+}
+
+.curriculum-section p {
+  max-width: 900px;
+  margin: 10px auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1a202c;
+}
+
+.curriculum-section ul {
+  max-width: 900px;
+  margin: 10px auto 20px auto;
+  padding-left: 20px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1a202c;
+}
+
+.curriculum-section ul li {
+  margin-bottom: 10px;
+}
+
+.curriculum-section a {
+  color: #0073e6;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.curriculum-section a:hover {
+  color: #005bb5;
+}
+
+@media (max-width: 768px) {
+  .curriculum-section {
+    padding: 40px 15px;
+  }
+
+  .curriculum-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .curriculum-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .curriculum-section p,
+  .curriculum-section ul {
+    font-size: 0.95rem;
+  }
+} 

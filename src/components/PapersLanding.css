@@ -1,0 +1,131 @@
+.chem-papers-landing {
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  padding: 24px;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(2, 47, 87, 0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.chem-papers-landing h1 {
+  color: #022f57;
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.filter-group label {
+  font-weight: 500;
+  color: #022f57;
+  margin-bottom: 6px;
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border: 2.8px solid #e36314b0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  color: #022f57;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.filter-group select:focus {
+  border-color: #022f57;
+}
+
+.papers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.paper-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  transition: box-shadow 0.2s, border 0.2s;
+  cursor: pointer;
+  box-shadow: 8px 8px 8px rgba(2, 47, 87, 0.438);
+}
+
+.paper-item:hover {
+  border-color: #022f57;
+  box-shadow: 0 4px 16px rgba(2, 47, 87, 0.10);
+}
+
+.paper-item h3 {
+  margin: 0 0 6px 0;
+  color: #022f57;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.paper-item p {
+  margin: 0 0 10px 0;
+  color: #e36414;
+  font-size: 0.98rem;
+  font-weight: 580;
+}
+
+.paper-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.paper-links a {
+  color: #fff;
+  background: #022f57;
+  padding: 6px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.paper-links a:hover {
+  background: #e36414;
+}
+
+.paper-links span {
+  color: #fcfcfc;
+  background: #022f57;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 0.97rem;
+}
+
+
+@media (max-width: 600px) {
+  .chem-papers-landing {
+    padding: 10px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .paper-item {
+    padding: 12px 8px;
+  }
+} 

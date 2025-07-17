@@ -1,0 +1,669 @@
+:root {
+  --primary: #304a58;
+  --secondary: #003366;
+  --accent: #0073e6;
+  --bg-light: #f9f9fb;
+  --text-color: #222;
+  --white: #fff;
+  --radius: 6px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f8fa;
+  color: #23272f;
+  margin: 0;
+  padding: 0;
+}
+
+section.hero {
+  width: 98%;
+  height: auto;
+  margin: 0 auto;
+  padding: 80px 0;
+  text-align: center;
+  background: #dbeafe;
+  padding: 4rem 1rem; 
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 3rem; 
+    margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1.25rem; 
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons button {
+  margin: 0 0.5rem; 
+  padding: 0.75rem 2rem; 
+  border: none;
+  border-radius: 6px; 
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button {
+  background-color: #03045e;
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(33, 99, 235, 0.08);
+  width: 260px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-item i {
+  font-size: 2.5rem;
+  color: #2563eb;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-item h3 {
+  font-size: 1.22rem;
+  margin-bottom: 0.5rem;
+  color: #003366;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.feature-item p {
+  font-size: 1.02rem;
+  color: #374151;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+section {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.booking-section {
+  max-width: 1000px; 
+  margin: auto;
+  text-align: center;
+}
+
+.booking-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.booking-section p {
+  color: #6b7280;
+  margin-bottom: 2.5rem;
+}
+
+.booking-box {
+  background: #fff;
+  display: flex;
+  gap: 3rem; 
+  padding: 2.5rem; 
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; 
+}
+
+.left-panel {
+  min-width: 300px;
+  max-width: 350px; 
+  flex-grow: 1; /
+}
+
+.left-panel h4,
+.left-panel h5 {
+  text-align: left;
+  margin-bottom: 0.75rem; 
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+.days,
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; 
+  margin-bottom: 1.5rem;
+}
+
+.day-btn,
+.time-btn {
+  padding: 0.6rem 1.2rem; 
+  border: 1px solid #d1d5db; 
+  border-radius: 6px;
+  background: #f9fafb; 
+  cursor: pointer;
+  color: #374151; 
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.day-btn.active,
+.time-btn.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.day-btn:hover:not(.active),
+.time-btn:hover:not(.active) {
+  background: #e0f2fe;
+  border-color: #93c5fd;
+}
+
+.right-panel {
+    min-width: 300px;
+    max-width: 350px; 
+    flex-grow: 1; 
+}
+
+.right-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; 
+}
+
+.right-panel input {
+  padding: 0.9rem; 
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.right-panel input::placeholder {
+    color: #9ca3af;
+}
+
+
+.pricing h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.pricing p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.pricing-tabs {
+    margin-bottom: 2rem;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #d1d5db;
+    background: #1c1d1d;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tab-button:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-right: none;
+}
+
+.tab-button:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.tab-button.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+.tab-button:hover:not(.active) {
+    background: #02426d;
+    border-color: #93c5fd;
+}
+
+
+.pricing-options {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: #fff;
+  padding: 2.2rem 1.7rem 2.2rem 1.7rem;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 6px 22px rgba(33, 99, 235, 0.10);
+  text-align: left;
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.18s, transform 0.16s;
+}
+
+.card:hover {
+  box-shadow: 0 12px 32px rgba(33, 99, 235, 0.16);
+  transform: translateY(-4px) scale(1.015);
+}
+
+.card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.6rem;
+  color: #003366;
+  font-weight: 700;
+}
+
+.card .price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.card .price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6b7280;
+  margin-left: 0.5rem;
+}
+
+.card .description {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-bottom: 1.2rem;
+  min-height: 40px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.card ul li {
+  margin-bottom: 0.7rem;
+  color: #23272f;
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 1.01rem;
+  line-height: 1.5;
+}
+
+.card ul li::before {
+  content: '\f00c';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #22c55e;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 1rem;
+}
+
+.card button {
+  margin-top: auto;
+  width: 100%;
+  font-size: 1.05rem;
+  padding: 0.8rem 0;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.card.featured {
+  border: 2px solid #2563eb;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.18);
+}
+
+.popular-label {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  background: #fcd34d;
+  color: #854d0e;
+  padding: 0.25rem 0.75rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.testimonials p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.overall-rating {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f59e0b; /* Star color */
+    margin-bottom: 2rem;
+}
+
+.overall-rating span {
+    color: #4b5563; /* Text color */
+    font-weight: 400;
+    margin-left: 0.5rem;
+}
+
+
+.reviews-grid { /* Changed from .reviews */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 1.5rem; /* Increased gap */
+  max-width: 1000px; /* Increased max-width */
+  margin: 2rem auto;
+}
+
+.review-card { /* Changed from .review */
+    background: white;
+    padding: 1.5rem; /* Increased padding */
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: left; /* Align text left */
+    display: flex; /* Use flex for internal layout */
+    flex-direction: column;
+    justify-content: space-between; /* Push name/course to bottom */
+}
+
+.review-text {
+    font-size: 1rem;
+    font-style: italic;
+    color: #374151;
+    margin-bottom: 1.5rem; /* Space between text and name */
+}
+
+.reviewer-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+    margin-top: auto; /* Push to bottom */
+}
+
+.reviewer-course {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+
+.feedback h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.feedback p {
+     color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.feedback-form-container {
+    max-width: 500px; /* Adjusted max-width */
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: left; /* Align text left */
+}
+
+.feedback-form-container > p { /* Target the rating prompt */
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.star-rating {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem; /* Star size */
+    color: #d1d5db; /* Default star color */
+}
+
+.star-rating .star {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.star-rating .star.rated,
+.star-rating .star:hover,
+.star-rating .star:hover ~ .star {
+    color: #f59e0b; /* Rated/hover color */
+}
+
+
+.feedback form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Adjusted gap */
+}
+
+.feedback input,
+.feedback select,
+.feedback textarea {
+  width: 100%;
+  padding: 0.9rem; /* Increased padding */
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 0; /* Remove default margin */
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.feedback textarea {
+    min-height: 120px; /* Increased height */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.feedback input::placeholder,
+.feedback textarea::placeholder {
+    color: #9ca3af;
+}
+
+.feedback button[type="submit"] {
+    margin-top: 1rem; /* Add margin above button */
+    width: auto; /* Auto width */
+    align-self: center; /* Center the button */
+}
+
+@media (max-width: 900px) {
+  .features {
+    gap: 1.5rem;
+  }
+  .feature-item {
+    width: 90vw;
+    max-width: 340px;
+    margin-bottom: 1.5rem;
+  }
+  .pricing-options {
+    gap: 1.2rem;
+  }
+  .card {
+    width: 95vw;
+    max-width: 340px;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .features {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .feature-item {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 1.2rem 0.7rem;
+  }
+  .pricing-options {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .card {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 1.2rem 0.7rem;
+  }
+}
+
+/* Footer styles (same as other pages) */
+.main-footer {
+  background: linear-gradient(28deg, #0f2c46 40%, #e36414 100%);
+  color: #e3eaf3;
+  padding-top: 44px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 180px;
+  margin-bottom: 32px;
+}
+
+.footer-col.brand {
+  flex: 2 1 300px;
+  min-width: 220px;
+}
+
+.footer-logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 28px;
+  color: #e36414;
+  font-weight: 800PX;
+  text-shadow: #000000 4px 0px 2px;
+}
+
+.footer-logo i {
+  margin-right: 8px;
+  color: #fffdfd;
+}
+
+.footer-col h5 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #8ac7ff;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 7px;
+}
+
+.footer-col ul li a {
+  color: #e3eaf3;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-col ul li a:hover {
+  color: #1976d2;
+  text-decoration: underline;
+}
+
+.footer-social {
+  margin-top: 12px;
+}
+
+.footer-social a {
+  color: #e3eaf3;
+  margin-right: 12px;
+  font-size: 1.1rem;
+  transition: color 0.15s;
+}
+
+.footer-social a:hover {
+  color: #1976d2;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #b0c4d6;
+  font-size: 0.97rem;
+  padding: 18px 0 12px 0;
+  border-top: 1px solid #8ac7ff;
+  margin-top: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.3rem; }
+
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1rem; }
+
+    .features { gap: 1.5rem; }
+    .feature-item { width: 200px; padding: 1rem; }
+
+    .booking-box { gap: 2rem; padding: 1.5rem; }
+    .left-panel, .right-panel { min-width: unset; max-width: 100%; }
+
+    .pricing-options { gap: 1.5rem; }
+    .card { width: 280px; padding: 1.5rem; }
+    .card .price { font-size: 2rem; }
+}

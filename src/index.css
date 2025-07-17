@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Ensure footer sticks to bottom and no white space */
+.main-footer {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Override any min-height that might cause issues */
+.notes-page,
+.video-page,
+.tutor-page,
+.pricing-page,
+.ebook-page,
+.syllabus-page,
+.exam-page,
+.papers-page,
+.qp-page,
+.ms-page,
+.examiner-page,
+.faq-page,
+.question-page,
+.contact-page,
+.dashboard-page,
+.resources-page,
+.community-page {
+  min-height: auto !important;
+  flex: 1;
+}
+
+/* Ensure Toastify doesn't affect layout */
+.Toastify__toast-container {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: auto !important;
+}
+
+.Toastify__toast {
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure Toastify doesn't affect page layout */
+section[class*="Toastify"] {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: auto !important;
+  height: auto !important;
+  width: auto !important;
+}
