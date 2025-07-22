@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { toast } from "react-toastify";
 import { lessonsCollection } from "../services/firestore";
-import { uploadFile } from "../services/storage";
+import { uploadFile } from "../services/storage-alternative";
 
 // TeacherUploadForm: For teachers to upload or update lessons/videos
 const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialType }) => {
@@ -22,6 +22,8 @@ const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialTy
   const [file, setFile] = useState(null);
   const [date, setDate] = useState(lessonToEdit?.date || "");
   const [time, setTime] = useState(lessonToEdit?.time || "");
+  const [externalUrl, setExternalUrl] = useState("");
+  const [uploadMethod, setUploadMethod] = useState("external"); // 'external' or 'file'
   const [info, setInfo] = useState(lessonToEdit?.info || "");
 
   const handleSubmit = async () => {
@@ -35,9 +37,16 @@ const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialTy
     }
     try {
       let fileURL = lessonToEdit?.fileURL;
-      if (file) {
-        fileURL = await uploadFile(file, `lessons/${file.name}`);
+      
+      if (uploadMethod === 'external' && externalUrl) {
+        // Use external URL
+        fileURL = externalUrl;
+      } else if (uploadMethod === 'file' && file) {
+        // Upload file using alternative storage
+        const result = await uploadFile(file, { category: 'lessons' });
+        fileURL = result.downloadURL;
       }
+      
       const lessonData = {
         title,
         type,
@@ -58,6 +67,8 @@ const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialTy
       setTitle("");
       setType("lesson");
       setFile(null);
+      setExternalUrl("");
+      setUploadMethod("external");
       setDate("");
       setTime("");
       setInfo("");
@@ -92,6 +103,43 @@ const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialTy
           <MenuItem value="video">Video</MenuItem>
         </Select>
       </FormControl>
+      
+      {/* Upload Method Selection */}
+      <FormControl fullWidth margin="normal">
+        <InputLabel>Upload Method</InputLabel>
+        <Select
+          value={uploadMethod}
+          onChange={(e) => setUploadMethod(e.target.value)}
+          label="Upload Method"
+        >
+          <MenuItem value="external">External Link (Recommended)</MenuItem>
+          <MenuItem value="file">Upload File</MenuItem>
+        </Select>
+      </FormControl>
+
+      {/* External URL Input */}
+      {uploadMethod === 'external' && (
+        <TextField
+          label="File URL (Google Drive, GitHub, etc.)"
+          value={externalUrl}
+          onChange={(e) => setExternalUrl(e.target.value)}
+          fullWidth
+          margin="normal"
+          placeholder="https://drive.google.com/... or https://github.com/..."
+          helperText="Upload your file to Google Drive or GitHub and paste the direct link here"
+        />
+      )}
+
+      {/* File Upload Input */}
+      {uploadMethod === 'file' && (
+        <input
+          type="file"
+          onChange={(e) => setFile(e.target.files[0])}
+          style={{ margin: '16px 0', width: '100%' }}
+          accept=".pdf,.doc,.docx,.ppt,.pptx,.mp4,.avi,.mov"
+        />
+      )}
+
       {(type === 'lesson' || type === 'schedule') && (
         <>
           <TextField
@@ -123,15 +171,7 @@ const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialTy
           />
         </>
       )}
-      <input
-        id="lesson-file"
-        name="lesson-file"
-        type="file"
-        accept=".pdf,.mp4"
-        onChange={(e) => setFile(e.target.files[0])}
-        aria-label="Upload file"
-      />
-      <label htmlFor="lesson-file" style={{ display: 'block', marginTop: 8 }}>Choose File</label>
+      
       <Button
         variant="contained"
         onClick={handleSubmit}

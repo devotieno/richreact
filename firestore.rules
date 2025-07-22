@@ -1,0 +1,44 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read and write access to all authenticated users for now
+    // This is for development/testing purposes
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Specific rules for your collections (more secure approach)
+    /*
+    // Contact submissions - anyone can create, only admins can read/update
+    match /contact_submissions/{docId} {
+      allow create: if request.auth != null;
+      allow read, update: if request.auth != null && 
+        (request.auth.token.role == 'admin' || request.auth.token.role == 'teacher');
+    }
+    
+    // Tutorial bookings - students can create, teachers can read/update
+    match /tutorial_bookings/{docId} {
+      allow create: if request.auth != null;
+      allow read, update: if request.auth != null && 
+        (request.auth.token.role == 'teacher' || 
+         request.auth.token.role == 'admin' ||
+         request.auth.uid == resource.data.studentId);
+    }
+    
+    // Booking notifications - only intended recipients can read
+    match /booking_notifications/{docId} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null && 
+        (request.auth.token.role == resource.data.recipientRole ||
+         request.auth.uid == resource.data.recipientId);
+    }
+    
+    // User profiles
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && request.auth.token.role == 'admin';
+    }
+    */
+  }
+}

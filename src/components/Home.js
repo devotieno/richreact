@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Button } from '@mui/material';
+import { Schedule as ScheduleIcon } from '@mui/icons-material';
+import BookingForm from './BookingForm';
 import './Home.css';
 
 const Home = () => {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
+  const handleOpenBooking = () => {
+    setBookingOpen(true);
+  };
+
+  const handleCloseBooking = () => {
+    setBookingOpen(false);
+  };
   return (
     <>
       {/* Hero Section */}
@@ -27,7 +39,27 @@ const Home = () => {
             <p>
               Embark on your chemistry journey with our comprehensive online course, expertly designed to support beginners, intermediate learners, and professionals alike.
             </p>
-           
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<ScheduleIcon />}
+              onClick={handleOpenBooking}
+              sx={{
+                mt: 3,
+                mb: 2,
+                backgroundColor: '#e36414',
+                '&:hover': {
+                  backgroundColor: '#d55a0f'
+                },
+                borderRadius: 2,
+                px: 4,
+                py: 1.5,
+                fontSize: '1.1rem',
+                fontWeight: 'bold'
+              }}
+            >
+              Book a Tutorial Session
+            </Button>
           </div>
         </div>
       </section>
@@ -179,6 +211,14 @@ const Home = () => {
           <button type="submit">Send Message</button>
         </form>
       </section>
+
+      {/* Booking Form Modal */}
+      <BookingForm 
+        open={bookingOpen} 
+        onClose={handleCloseBooking}
+        tutorId="main-tutor"
+        tutorName="Dr. Joseph Anjili"
+      />
     </>
   );
 };
