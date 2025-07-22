@@ -2,12 +2,11 @@
 import { db } from "../firebase";
 import {
   collection,
-  addDoc,
   getDocs,
   query,
   where,
-  Timestamp
 } from "firebase/firestore";
+// Removed unused imports: addDoc, Timestamp
 
 // Collection references
 export const resourcesCollection = collection(db, "resources");

@@ -45,7 +45,7 @@ const Header = () => {
         setIsSticky(window.scrollY > 200);
       }
     };
-
+  
     // Initial check
     handleScroll();
     
@@ -54,7 +54,7 @@ const Header = () => {
     
     // Cleanup
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, [location.pathname, getHeroSelector]);
 
   const handleLogout = async () => {
     try {

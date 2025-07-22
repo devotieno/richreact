@@ -10,7 +10,6 @@ import {
   Grid, 
   Card, 
   CardContent, 
-  CardActions, 
   Button, 
   TextField,
   Dialog,
@@ -24,8 +23,6 @@ import {
 import { 
   Add as AddIcon,
   QuestionAnswer as QuestionIcon,
-  ThumbUp as ThumbUpIcon,
-  Reply as ReplyIcon,
   Person as PersonIcon
 } from '@mui/icons-material';
 

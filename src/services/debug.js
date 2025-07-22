@@ -28,46 +28,48 @@ export const testFirestoreConnection = async () => {
   }
 };
 
-export const debugBookingSubmission = async (formData) => {
+
+export const debugBookingSubmission = async (formData, user) => {
+  const activeUser = user || auth.currentUser;
   console.log('🔍 DEBUG: Starting booking submission');
   console.log('📝 Form data:', formData);
-  console.log('👤 Current user:', auth.currentUser);
-  console.log('🔒 User authenticated:', !!auth.currentUser);
-  
-  if (!auth.currentUser) {
+  console.log('👤 Current user:', activeUser);
+  console.log('🔒 User authenticated:', !!activeUser);
+
+  if (!activeUser) {
     console.error('❌ User not authenticated');
     return { success: false, error: 'User not authenticated' };
   }
-  
+
   // Test Firestore connection first
   const connectionTest = await testFirestoreConnection();
   if (!connectionTest.success) {
     return connectionTest;
   }
-  
+
   try {
     console.log('📤 Attempting to submit booking...');
-    
+
     const bookingData = {
       ...formData,
-      studentId: auth.currentUser.uid,
+      studentId: activeUser.uid,
       bookedAt: serverTimestamp(),
       status: 'pending',
       paymentStatus: 'unpaid',
       debugInfo: {
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent,
-        userId: auth.currentUser.uid
+        userId: activeUser.uid
       }
     };
-    
+
     console.log('📊 Final booking data:', bookingData);
-    
+
     const docRef = await addDoc(collection(db, 'tutorial_bookings'), bookingData);
-    
+
     console.log('✅ Booking submitted successfully! Document ID:', docRef.id);
     return { success: true, id: docRef.id };
-    
+
   } catch (error) {
     console.error('❌ Booking submission failed:', error);
     console.error('Error details:', {

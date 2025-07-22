@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+// Removed unused imports: React, useState, useMemo, useNavigate
 import './PapersLanding.css';
 
 

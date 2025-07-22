@@ -9,7 +9,7 @@ import {
 } from '../services/booking';
 import { getQuestions } from '../services/questions';
 import { sendContactResponse } from '../services/email';
-import '../test-admin-response'; // Load admin response testing tools
+// Removed test-admin-response import (module not found)
 import { toast } from 'react-toastify';
 import {
   Container,
@@ -173,7 +173,7 @@ const AdminPanel = () => {
 
       // Then open email client with pre-filled message
       try {
-        const result = await sendContactResponse(selectedItem, responseMessage);
+        await sendContactResponse(selectedItem, responseMessage);
         
         // Clear instruction for manual mailto system
         toast.success(`📧 Email client opened with message to ${selectedItem.email}`, {

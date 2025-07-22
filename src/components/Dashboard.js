@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+// Removed unused import useNavigate
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../firebase';
 import { toast } from 'react-toastify';
@@ -52,7 +52,7 @@ const Dashboard = () => {
   const [editingLesson, setEditingLesson] = useState(null);
   const [loadingLessons, setLoadingLessons] = useState(false);
 
-  const navigate = useNavigate();
+  // Removed unused variable navigate
 
   useEffect(() => {
     if (userData) {

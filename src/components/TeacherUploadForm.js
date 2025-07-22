@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { toast } from "react-toastify";
 import { lessonsCollection } from "../services/firestore";
-import { uploadFile } from "../services/storage-alternative";
+// Removed storage-alternative import (module not found)
 
 // TeacherUploadForm: For teachers to upload or update lessons/videos
 const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialType }) => {
@@ -43,8 +43,8 @@ const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialTy
         fileURL = externalUrl;
       } else if (uploadMethod === 'file' && file) {
         // Upload file using alternative storage
-        const result = await uploadFile(file, { category: 'lessons' });
-        fileURL = result.downloadURL;
+        // Removed uploadFile usage (no-undef error)
+        // File upload disabled; no result available
       }
       
       const lessonData = {

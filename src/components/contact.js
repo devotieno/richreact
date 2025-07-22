@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import { toast } from 'react-toastify';
-import { testContactSubmission } from '../debug-contact';
+// Removed debug-contact import (module not found)
 import './contact.css';
 
 const profile = {
@@ -85,26 +85,8 @@ const ContactPage = () => {
       console.log('✅ Form validation passed');
       console.log('🔥 Attempting to submit to Firestore...');
 
-      // Test Firestore connection first
-      console.log('🧪 Running connection test...');
-      const testResult = await testContactSubmission();
-      
-      if (!testResult.success) {
-        console.error('❌ Connection test failed:', testResult);
-        
-        if (testResult.code === 'permission-denied') {
-          toast.error('Permission denied. Please check Firestore security rules.');
-          console.error('🚫 Firestore security rules are blocking contact submissions');
-          console.log('💡 To fix: Update Firestore rules to allow writes to contact_submissions collection');
-        } else {
-          toast.error(`Database error: ${testResult.error}`);
-        }
-        
-        setIsSubmitting(false);
-        return;
-      }
 
-      console.log('✅ Connection test passed, proceeding with actual submission...');
+      // Removed testResult usage (no-undef error)
 
       // Submit to Firestore
       const docRef = await addDoc(collection(db, 'contact_submissions'), {

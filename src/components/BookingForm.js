@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { submitTutorialBooking } from '../services/booking';
+// Removed unused import submitTutorialBooking
 import { debugBookingSubmission, testFirestoreConnection } from '../services/debug';
 import { toast } from 'react-toastify';
 import {
@@ -86,6 +86,13 @@ const BookingForm = ({ open, onClose, tutorId = null, tutorName = "Dr. Joseph An
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Check if user is signed in
+    if (!currentUser || !currentUser.uid) {
+      toast.error('You must be logged in to book a session. Please log in and try again.');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       // Validate required fields
       const requiredFields = ['studentName', 'email', 'phone', 'level', 'sessionType', 'preferredDate', 'preferredTime'];
@@ -139,7 +146,7 @@ const BookingForm = ({ open, onClose, tutorId = null, tutorName = "Dr. Joseph An
 
       // Submit using the debug function first to identify issues
       console.log('🚀 Starting booking submission with debug mode');
-      const debugResult = await debugBookingSubmission(bookingData);
+      const debugResult = await debugBookingSubmission(bookingData, currentUser);
       
       if (debugResult.success) {
         toast.success('Booking request submitted successfully! You will receive a confirmation email soon.');
