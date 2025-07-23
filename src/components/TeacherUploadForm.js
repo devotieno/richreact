@@ -27,7 +27,7 @@ const TeacherUploadForm = ({ lessonToEdit = null, onSuccess, onCancel, initialTy
   const [info, setInfo] = useState(lessonToEdit?.info || "");
 
   const handleSubmit = async () => {
-    if (!user || user.role !== "teacher") {
+    if (!user || user.role !== "student") {
       toast.error("Only teachers can upload content");
       return;
     }

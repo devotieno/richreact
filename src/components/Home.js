@@ -47,9 +47,9 @@ const Home = () => {
               sx={{
                 mt: 3,
                 mb: 2,
-                backgroundColor: '#e36414',
+                backgroundColor: '#e36314cb',
                 '&:hover': {
-                  backgroundColor: '#d55a0f'
+                  backgroundColor: '#d55b0fab'
                 },
                 borderRadius: 2,
                 px: 4,

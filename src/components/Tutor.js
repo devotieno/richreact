@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { getLessons } from "../services/firestore";
 import { doc, updateDoc, arrayUnion, increment } from "firebase/firestore";
 import { db, auth } from "../firebase";
@@ -11,6 +12,7 @@ import './Tutor.css';
 const Tutor = () => {
   // State for Firestore lessons
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [lessons, setLessons] = useState([]);
   const [tab, setTab] = useState("lesson");
   const [editingLesson, setEditingLesson] = useState(null);
@@ -86,7 +88,7 @@ const Tutor = () => {
           </p>
           <div className="buttons">
             <button className="primary-btn">Book a Session →</button>
-            <button className="secondary-btn">View Pricing</button>
+            <button className="secondary-btn" onClick={() => navigate('/pricing')}>View Pricing</button>
           </div>
           <div className="features-row">
             <div className="feature">

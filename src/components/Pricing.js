@@ -66,8 +66,8 @@ function Pricing() {
     <div className="pricing-page">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
       <section className="hero-pricing">
-        <h1>Master Chemistry with Professional Tutoring</h1>
-        <p>Personalized tutoring across all chemistry curricula, from fundamentals to advanced topics.</p>
+        <h1 className="hero-title">Master Chemistry with Professional Tutoring</h1>
+        <p className="hero-subtitle">Personalized tutoring across all chemistry curricula, from fundamentals to advanced topics.</p>
         <div className="hero-buttons">
           <button className="btn-primary" onClick={handleOpenBooking}>Book a Session</button>
           <button className="btn-secondary" onClick={scrollToPricing}>View Pricing</button>
@@ -90,11 +90,10 @@ function Pricing() {
           </div>
         </div>
       </section>
-      {/* Booking Section - Unified with Home Page */}
       <section id="booking-section" className="booking-section">
         <h2>Book Your Tutoring Session</h2>
         <p>Click below to book your chemistry tutoring session with Dr. Joseph Anjili.</p>
-        <button className="btn-primary" style={{ fontSize: '1.2rem', padding: '12px 32px', margin: '24px 0' }} onClick={handleOpenBooking}>
+        <button className="btn-primary booking-btn" onClick={handleOpenBooking}>
           Book a Session
         </button>
         <BookingForm
@@ -105,8 +104,8 @@ function Pricing() {
         />
       </section>
       <section id="pricing-section" className="pricing">
-        <h2>Simple, Transparent Pricing</h2>
-        <p>Choose the tutoring package that best fits your learning needs</p>
+        <h2 className="pricing-title">Simple, Transparent Pricing</h2>
+        <p className="pricing-subtitle">Choose the tutoring package that best fits your learning needs</p>
         <div className="pricing-tabs">
           <button
             className={`tab-button${activeTab === 'per-session' ? ' active' : ''}`}
@@ -204,52 +203,13 @@ function Pricing() {
         </div>
         )}
         <div className="custom-package">
-          <p>Need a Custom Plan?</p>
+          <p className="custom-title">Need a Custom Plan?</p>
           <p>If you need specialized tutoring for advanced topics or have specific requirements, contact us for a tailored plan.</p>
           <button className="btn-secondary">Contact for Custom Package</button>
         </div>
       </section>
-      <section className="testimonials">
-        <h2>What My Students Say</h2>
-        <p>Discover what students have to say about their tutoring experience and the results they've achieved.</p>
-        <div className="overall-rating">
-          ★★★★★ <span>4.9 overall rating</span>
-        </div>
-        <div className="reviews-grid">
-          <div className="review-card">
-            <p className="review-text">“The tutoring sessions helped me understand reaction mechanisms that I had been struggling with for weeks. My exam grades improved significantly.”</p>
-            <p className="reviewer-name"><strong>Alex Johnson</strong></p>
-            <p className="reviewer-course">Organic Chemistry</p>
-          </div>
-          <div className="review-card">
-            <p className="review-text">“At a first-year student, I was overwhelmed by chemistry concepts. The step-by-step explanations made everything so much clearer. Highly recommend.”</p>
-            <p className="reviewer-name"><strong>Sarah Williams</strong></p>
-            <p className="reviewer-course">General Chemistry</p>
-          </div>
-          <div className="review-card">
-            <p className="review-text">“Thermodynamics seemed impossible until I started these tutoring sessions. The tutor has a gift for making complex topics understandable.”</p>
-            <p className="reviewer-name"><strong>Michael Chen</strong></p>
-            <p className="reviewer-course">Physical Chemistry</p>
-          </div>
-          <div className="review-card">
-            <p className="review-text">“The tutoring helped me connect biochemistry concepts to my pre-med studies. The real-world applications made the material much more engaging.”</p>
-            <p className="reviewer-name"><strong>Erica Rodriguez</strong></p>
-            <p className="reviewer-course">Biochemistry</p>
-          </div>
-          <div className="review-card">
-            <p className="review-text">“I was falling behind in my inorganic chemistry class until I started these sessions. Now I'm one of the top students in my class.”</p>
-            <p className="reviewer-name"><strong>James Wilson</strong></p>
-            <p className="reviewer-course">Inorganic Chemistry</p>
-          </div>
-          <div className="review-card">
-            <p className="review-text">“The exam preparation strategies were invaluable. I earned a 5 on my AP Chemistry exam thanks to the focused tutoring.”</p>
-            <p className="reviewer-name"><strong>Olivia Martinez</strong></p>
-            <p className="reviewer-course">AP Chemistry</p>
-          </div>
-        </div>
-      </section>
       <section className="feedback">
-        <h2>Share Your Experience</h2>
+        <h2 className="feedback-title">Share Your Experience</h2>
         <p>Your feedback helps improve the tutoring experience and assists other students in making informed decisions.</p>
         <div className="feedback-form-container">
           <p>How would you rate your tutoring experience?</p>
@@ -264,7 +224,7 @@ function Pricing() {
               >★</span>
             ))}
           </div>
-          <form onSubmit={handleFeedbackSubmit} style={{ marginTop: 16 }}>
+          <form onSubmit={handleFeedbackSubmit} className="feedback-form">
             <input
               type="text"
               placeholder="Your Name"
@@ -304,12 +264,12 @@ function Pricing() {
             </button>
           </form>
         </div>
-        <div className="recent-feedback" style={{ marginTop: 32 }}>
+        <div className="recent-feedback">
           <h3>Recent Student Feedback</h3>
           {recentFeedback.length === 0 && <p>No feedback yet. Be the first to share your experience!</p>}
           <div className="feedback-list">
             {recentFeedback.map(fb => (
-              <div key={fb.id} className="review-card" style={{ marginBottom: 16 }}>
+              <div key={fb.id} className="review-card">
                 <p className="review-text">{fb.feedback}</p>
                 <p className="reviewer-name"><strong>{fb.name}</strong> <span style={{ color: '#e36414' }}>{'★'.repeat(fb.rating || 0)}</span></p>
                 <p className="reviewer-course">{fb.course && courseLabel(fb.course)}</p>
