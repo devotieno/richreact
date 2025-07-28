@@ -34,6 +34,7 @@ import {
 import './Dashboard.css';
 import TeacherUploadForm from './TeacherUploadForm';
 import { getLessons } from '../services/firestore';
+import { testFirebaseConfig } from '../utils/testFirebase';
 
 const Dashboard = () => {
   const { currentUser, userRole, userData, updateUserProfile, updateUserData } = useAuth();
@@ -478,6 +479,17 @@ const Dashboard = () => {
                 startIcon={<UploadIcon />}
               >
                 Add Video
+              </Button>
+              <Button
+                variant="outlined"
+                color="info"
+                onClick={() => {
+                  const config = testFirebaseConfig();
+                  console.log('Firebase Config Test:', config);
+                  toast.info(`Storage: ${config.storage ? '✅' : '❌'}, Firestore: ${config.firestore ? '✅' : '❌'}`);
+                }}
+              >
+                Test Firebase
               </Button>
             </Box>
             {showUploadForm && (
